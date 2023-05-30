@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:plantforyou/screens/caladium.dart';
+import 'package:plantforyou/screens/monstera.dart';
+import 'package:plantforyou/screens/philodentron.dart';
+import 'package:plantforyou/screens/calathea.dart';
 
 class AllPage extends StatelessWidget {
   @override
@@ -9,7 +13,7 @@ class AllPage extends StatelessWidget {
       children: [
         Container(
           width: 500,
-          height: 700,
+          height: 550,
           child: AllPageContent(),
         ),
       ],
@@ -28,18 +32,35 @@ class AllPageContent extends StatelessWidget {
             Expanded(
               child: Column(
                 children: [
-                  // First plant item
-                  PlantItem(
-                    image: 'assets/images/Philodendron Birkin.png',
-                    title: 'Monstera deliciosa',
-                    price: '\$8.00',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CaladiumBicolar()),
+                      );
+                    },
+                    child: PlantItem(
+                      image: 'assets/images/Caladium bicolor30503120538 2.png',
+                      title: 'Caladium bicolor',
+                      price: '\$8.00',
+                    ),
                   ),
+
                   SizedBox(height: 16.0),
                   // Second plant item
-                  PlantItem(
-                    image: 'assets/images/Philodendron Birkin.png',
-                    title: 'Monstera deliciosa',
-                    price: '\$10.00',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Monstera()),
+                      );
+                    },
+                    child: PlantItem(
+                      image: 'assets/images/wepik-export-20230503085419 2.png',
+                      title: 'Monstera deliciosa',
+                      price: '\$10.00',
+                    ),
                   ),
                 ],
               ),
@@ -49,18 +70,33 @@ class AllPageContent extends StatelessWidget {
             Expanded(
               child: Column(
                 children: [
-                  // Third plant item
-                  PlantItem(
-                    image: 'assets/images/Philodendron Birkin.png',
-                    title: 'Monstera deliciosa',
-                    price: '\$8.00',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Philodendron()),
+                      );
+                    },
+                    child: PlantItem(
+                      image: 'assets/images/Philodendron moonlight.png',
+                      title: 'Philodendron moonlight',
+                      price: '\$8.00',
+                    ),
                   ),
-                  SizedBox(height: 16.0),
+
                   // Fourth plant item
-                  PlantItem(
-                    image: 'assets/images/Philodendron Birkin.png',
-                    title: 'Monstera deliciosa',
-                    price: '\$10.00',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Calathea()),
+                      );
+                    },
+                    child: PlantItem(
+                      image: 'assets/images/Philodendron Birkin.png',
+                      title: 'Calathea Makoyana',
+                      price: '\$10.00',
+                    ),
                   ),
                 ],
               ),

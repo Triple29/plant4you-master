@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 String _localhost() {
   if (defaultTargetPlatform == TargetPlatform.android) {
-    return '192.168.2.108:3000';
+    return '192.168.2.36:3000';
   } else {
     return 'localhost:3000';
   }

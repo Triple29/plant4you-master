@@ -23,7 +23,7 @@ class _SignInPageState extends State<SignInPage> {
 
   String _localhost() {
     if (defaultTargetPlatform == TargetPlatform.android) {
-      return '192.168.2.108:3000';
+      return '192.168.2.36:3000';
     } else {
       return 'localhost:3000';
     }
@@ -82,30 +82,6 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
-  /*final response = await http.post(
-      Uri.parse("${_localhost()}/user/register"),
-      headers: <String, String>{
-        "Content-Type": "application/json; charset=UTF-8",
-      }, // เพิ่ม header Content-Type
-      body: jsonEncode(<String, String>{
-        "firstname": firstname,
-        "lastname": lastname,
-        "email": email,
-        "password": password,
-      }), // แปลงข้อมูลเป็น JSON
-    );
-
-    if (response.statusCode == 200) {
-      // Successful login
-      var decodeData = jsonDecode(response.body);
-      return decodeData;
-      // Handle the decoded response data accordingly
-    } else {
-      // Failed login
-      Fluttertoast.showToast(msg: 'Login failed');
-    }
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
                         CrossAxisAlignment.center, // Align items to the start
                     children: [
                       const Text(
-                        'Sign In',
+                        'Sign Up',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 36.0,

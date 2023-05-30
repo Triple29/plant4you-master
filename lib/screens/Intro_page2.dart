@@ -68,7 +68,7 @@ class IntroPage2 extends StatelessWidget {
                           ),
                         );
                       },
-                      text: 'Sign In',
+                      text: 'Sign Up',
                       buttonColor: Colors.white,
                       foregroundColor: const Color(
                           0xFF375735), // Set the text color to black

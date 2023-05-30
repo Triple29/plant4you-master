@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plantforyou/components/product.dart';
+import 'package:plantforyou/screens/calathea.dart';
+import 'package:plantforyou/screens/cart.dart';
 import '../components/menubar.dart';
 
 class HomesPage extends StatefulWidget {
@@ -19,87 +21,100 @@ class _HomesPageState extends State<HomesPage> {
 
     for (int i = 0; i < 5; i++) {
       plants.add(
-        Column(
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                color: Colors.green[300],
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15.0),
-                  topRight: Radius.circular(15.0),
+        GestureDetector(
+          // เพิ่ม GestureDetector รอบๆ Widget ของสินค้าแต่ละรายการ
+          onTap: () {
+            Navigator.push(
+              // เปลี่ยนไปยังหน้าสินค้าที่เกี่ยวข้องเมื่อคลิกที่สินค้า
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    Calathea(), // เปลี่ยนเป็นหน้าสินค้าที่เกี่ยวข้อง
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                margin: const EdgeInsets.symmetric(horizontal: 5),
+                decoration: BoxDecoration(
+                  color: Colors.green[300],
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(15.0),
+                    topRight: Radius.circular(15.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      blurRadius: 2.0,
+                    ),
+                  ],
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 2.0,
-                  ),
-                ],
-              ),
-              child: Align(
-                alignment: Alignment.center,
-                child: FractionallySizedBox(
-                  widthFactor: 0.8,
-                  heightFactor: 0.8,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Image.asset(
-                      'assets/images/Philodendron Birkin.png',
-                      fit: BoxFit.cover,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.8,
+                    heightFactor: 0.8,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15.0),
+                      child: Image.asset(
+                        'assets/images/Philodendron Birkin.png',
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              width: 100,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(15.0),
-                  bottomRight: Radius.circular(15.0),
+              Container(
+                width: 100,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      blurRadius: 2.0,
+                    ),
+                  ],
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    blurRadius: 2.0,
-                  ),
-                ],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Monstera ',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      ' deliciosa',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '\$8.00',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    'Monstera ',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    ' deliciosa',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    '\$8.00',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -208,10 +223,13 @@ class _HomesPageState extends State<HomesPage> {
                   padding: const EdgeInsets.only(left: 5.0),
                   child: TextButton(
                     onPressed: () {
-                      setState(() {
-                        selectedButtonIndex = 0;
-                        isAllSelected = true;
-                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ShoppingCartPage(), // เปลี่ยนเป็นหน้า CartPage ที่คุณต้องการไป
+                        ),
+                      );
                     },
                     child: Text(
                       'All',
